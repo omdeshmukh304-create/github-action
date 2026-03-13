@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Om Deshmukh | DevOps Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#ffffff;
+--accent:#38bdf8;
+}
+
+.light{
+--bg:#f1f5f9;
+--card:#ffffff;
+--text:#020617;
+--accent:#0284c7;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
+}
+
+/* Navbar */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:var(--card);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+nav h1{
+color:var(--accent);
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:var(--text);
+font-weight:500;
+}
+
+.toggle{
+cursor:pointer;
+background:var(--accent);
+border:none;
+padding:8px 14px;
+border-radius:6px;
+}
+
+/* Hero */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:center;
+flex-wrap:wrap;
+gap:40px;
+padding:80px 10%;
+}
+
+.hero img{
+width:200px;
+border-radius:50%;
+border:4px solid var(--accent);
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+.hero-text h2{
+font-size:40px;
+}
+
+.hero-text span{
+color:var(--accent);
+}
+
+/* Section */
+
+section{
+padding:70px 10%;
+}
+
+h3{
+text-align:center;
+margin-bottom:40px;
+font-size:28px;
+}
+
+/* Skills */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.skill{
+background:var(--card);
+padding:12px 20px;
+border-radius:8px;
+transition:0.3s;
+}
+
+.skill:hover{
+transform:scale(1.1);
+background:var(--accent);
+color:white;
+}
+
+/* Projects */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.project{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-8px);
+}
+
+.project a{
+color:var(--accent);
+text-decoration:none;
+font-size:14px;
+}
+
+/* Contact */
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+color:var(--accent);
+text-decoration:none;
+}
+
+/* Footer */
+
+footer{
+text-align:center;
+padding:20px;
+background:var(--card);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-text h2{
+font-size:30px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav>
+
+<h1>Om Deshmukh</h1>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<button class="toggle" onclick="toggleMode()">Mode</button>
+
+</nav>
+
+<!-- Hero -->
+
+<div class="hero">
+
+<img src="profile.jpg" alt="profile">
+
+<div class="hero-text">
+
+<h2>Hello I'm <span>Om Deshmukh</span></h2>
+
+<p>
+B.Tech Student • DevOps Enthusiast • Cloud Learner
+</p>
+
+</div>
+
+</div>
+
+<!-- About -->
+
+<section id="about">
+
+<h3>About Me</h3>
+
+<p style="max-width:700px;margin:auto;text-align:center">
+
+I am a B.Tech student passionate about DevOps, Cloud Computing and automation.
+Currently learning Docker, GitHub Actions and CI/CD pipelines.
+I enjoy building real world DevOps projects and sharing my learning journey.
+
+</p>
+
+</section>
+
+<!-- Skills -->
+
+<section id="skills">
+
+<h3>Skills</h3>
+
+<div class="skills">
+
+<div class="skill">Docker</div>
+<div class="skill">Git</div>
+<div class="skill">GitHub</div>
+<div class="skill">GitHub Actions</div>
+<div class="skill">AWS</div>
+<div class="skill">Linux</div>
+<div class="skill">CI/CD</div>
+<div class="skill">YAML</div>
+
+</div>
+
+</section>
+
+<!-- Projects -->
+
+<section id="projects">
+
+<h3>Projects</h3>
+
+<div class="projects">
+
+<div class="project">
+
+<h4>3 Tier DevOps Application</h4>
+
+<p>
+A containerized 3-tier web application deployed using Docker and CI/CD pipeline.
+</p>
+
+<br>
+
+<a href="#">GitHub Repository →</a>
+
+</div>
+
+<div class="project">
+
+<h4>DevOps Notes App</h4>
+
+<p>
+A simple notes application used to store DevOps commands and learning resources.
+</p>
+
+<br>
+
+<a href="#">GitHub Repository →</a>
+
+</div>
+
+<div class="project">
+
+<h4>Docker Cheat Sheet</h4>
+
+<p>
+A curated list of essential Docker commands useful for developers and DevOps engineers.
+</p>
+
+<br>
+
+<a href="#">GitHub Repository →</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+<h3>Contact</h3>
+
+<div class="contact">
+
+<p>Email: your@email.com</p>
+
+<p>
+GitHub:
+<a href="https://github.com/yourusername">github.com/yourusername</a>
+</p>
+
+<p>
+LinkedIn:
+<a href="#">LinkedIn Profile</a>
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Om Deshmukh | DevOps Portfolio</p>
+
+</footer>
+
+<script>
+
+function toggleMode(){
+document.body.classList.toggle("light")
+}
+
+</script>
+
+</body>
+</html>
