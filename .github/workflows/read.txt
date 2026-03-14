@@ -1,0 +1,147 @@
+1. on:
+
+Purpose:
+Defines when the workflow should run.
+
+Example:
+
+on:
+  push
+
+Explanation:
+This means the workflow will run every time code is pushed to the repository.
+
+Other triggers include:
+
+pull_request
+
+workflow_dispatch
+
+schedule
+
+2. jobs:
+
+Purpose:
+A job is a collection of steps that run together in a workflow.
+
+Example:
+
+jobs:
+  greet:
+
+Explanation:
+Here, greet is the job name.
+
+A workflow can have multiple jobs such as:
+
+build
+
+test
+
+deploy
+
+3. runs-on:
+
+Purpose:
+Specifies which virtual machine (runner) will execute the job.
+
+Example:
+
+runs-on: ubuntu-latest
+
+Explanation:
+This tells GitHub to run the job on an Ubuntu virtual machine.
+
+Other options:
+
+windows-latest
+
+macos-latest
+
+4. steps:
+
+Purpose:
+A step is an individual task within a job.
+
+Example:
+
+steps:
+
+Explanation:
+Each step performs one action such as:
+
+checking out the code
+
+installing dependencies
+
+running tests
+
+5. uses:
+
+Purpose:
+Used to run a pre-built GitHub Action.
+
+Example:
+
+uses: actions/checkout@v4
+
+Explanation:
+This action downloads your repository code into the runner.
+
+Without this step, the workflow cannot access your project files.
+
+6. run:
+
+Purpose:
+Executes a command in the runner's shell.
+
+Example:
+
+run: echo "Hello from GitHub Actions!"
+
+Explanation:
+This prints a message in the workflow logs.
+
+You can also run commands like:
+
+run: npm install
+run: python app.py
+run: docker build .
+7. name: (Step Name)
+
+Purpose:
+Provides a human-readable label for the step in the GitHub Actions interface.
+
+Example:
+
+- name: Print Hello
+  run: echo "Hello from GitHub Actions!"
+
+Explanation:
+This helps identify each step when viewing workflow logs.
+
+
+1️⃣ Print current date and time
+date
+
+Shows the current time of the GitHub runner machine.
+
+2️⃣ Print branch name
+echo "Branch name is ${{ github.ref_name }}"
+
+Uses a GitHub variable to show which branch triggered the workflow.
+
+Example output:
+
+Branch name is main
+3️⃣ List files in repository
+ls -la
+
+Shows all files inside the repo after checkout.
+
+4️⃣ Print runner operating system
+echo "Runner OS is $RUNNER_OS"
+
+Example output:
+
+Runner OS is Linux
