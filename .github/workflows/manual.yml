@@ -1,0 +1,21 @@
+name: Manual Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+        environment:
+            description: "Select environment"
+            required: true
+            default: "staging"
+            type: choice
+            options:
+            - staging
+            - production
+
+jobs: 
+    manual-run:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Print selected environment
+              run: echo "Selected environment is ${{ github.event.inputs.environment }}"

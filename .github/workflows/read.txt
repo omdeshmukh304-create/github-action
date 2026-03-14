@@ -145,3 +145,16 @@ echo "Runner OS is $RUNNER_OS"
 Example output:
 
 Runner OS is Linux
+
+
+
+“Run the workflow at minute 0 of hour 9 on every Monday, regardless of the day of the month or month.”
+
+Explanation of each part:
+
+Cron Part	Meaning
+Minute = 0	At the start of the hour
+Hour = 9	At 9 AM
+Day of Month = *	Every day of the month
+Month = *	Every month
+Day of Week = 1	Monday
