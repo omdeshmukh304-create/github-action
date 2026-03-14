@@ -25,3 +25,6 @@ jobs:
 
       - name: Print runner operating system
         run: echo "Runner OS is ${{ runner.os }}"
+
+      - name: Break the pipeline (optional)
+        run: exit 1
