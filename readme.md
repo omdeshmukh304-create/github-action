@@ -1,1 +1,0 @@
-[![Docker CI/CD](https://github.com/omdeshmukh304-create/github-action/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/omdeshmukh304-create/github-action/actions/workflows/docker-publish.yml)
