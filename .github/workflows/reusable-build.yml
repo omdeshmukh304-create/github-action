@@ -1,41 +1,41 @@
-name: Reusable Build Workflow
+name: "Setup and Greet"
+description: "Custom composite action to greet user"
 
-on:
-  workflow_call:
-    inputs:
-      app_name:
-        required: true
-        type: string
-      environment:
-        required: true
-        default: "staging"
-        type: string
-    secrets:
-      docker_token:
-        required: true
-    outputs:
-      build_version:
-        description: "Generated build version"
-        value: ${{ jobs.build.outputs.build_version }}
+inputs:
+  name:
+    description: "Name of the user"
+    required: true
+  language:
+    description: "Language for greeting"
+    required: false
+    default: "en"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      build_version: ${{ steps.set_version.outputs.build_version }}
+outputs:
+  greeted:
+    description: "Indicates greeting was done"
+    value: ${{ steps.set-output.outputs.greeted }}
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+runs:
+  using: "composite"
+  steps:
+    - name: Print Greeting
+      shell: bash
+      run: |
+        if [ "${{ inputs.language }}" = "en" ]; then
+          echo "Hello, ${{ inputs.name }}!"
+        elif [ "${{ inputs.language }}" = "hi" ]; then
+          echo "Namaste, ${{ inputs.name }}!"
+        else
+          echo "Hello, ${{ inputs.name }}!"
+        fi
 
-      - name: Generate Version
-        id: set_version
-        run: |
-          VERSION="v1.0-${GITHUB_SHA::7}"
-          echo "build_version=$VERSION" >> $GITHUB_OUTPUT
+    - name: Print Date and OS
+      shell: bash
+      run: |
+        echo "Date: $(date)"
+        echo "Runner OS: $RUNNER_OS"
 
-      - name: Print Build Info
-        run: echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
-
-      - name: Verify Docker Token
-        run: echo "Docker token is set ${{ secrets.docker_token != '' }}"
+    - name: Set Output
+      id: set-output
+      shell: bash
+      run: echo "greeted=true" >> $GITHUB_OUTPUT
