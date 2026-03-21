@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code   
+        uses: actions/checkout@v4
+
+      - name: Run Custom Action
+        id: greet_step
+        uses: ./.github/actions/setup-and-greet
+        with:
+          name: "Om"
+          language: "en"
+
+      - name: Check Output
+        run: echo "Greeted ${{ steps.greet_step.outputs.greeted }}"

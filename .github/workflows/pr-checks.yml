@@ -15,13 +15,13 @@ jobs:
       - name: Check file size
         run: |
           files=$(find . -type f -size +1M)
-
+          
           if [ -n "$files" ]; then
-            echo "❌ Large files found:"
+            echo " Large files found:"
             echo "$files"
             exit 1
           else
-            echo "✅ File sizes are OK"
+            echo " File sizes are OK"
           fi
 
   branch-name-check:
@@ -32,9 +32,9 @@ jobs:
           echo "Branch: ${{ github.head_ref }}"
 
           if [[ "${{ github.head_ref }}" =~ ^(feature|fix|docs)/ ]]; then
-            echo "✅ Branch name valid"
+            echo " Branch name valid"
           else
-            echo "❌ Invalid branch name"
+            echo " Invalid branch name"
             exit 1
           fi
 
@@ -46,7 +46,7 @@ jobs:
           BODY="${{ github.event.pull_request.body }}"
 
           if [ -z "$BODY" ]; then
-            echo "⚠️ PR description is empty"
+            echo " PR description is empty"
           else
-            echo "✅ PR description present"
+            echo " PR description present"
           fi
